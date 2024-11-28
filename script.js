@@ -35,6 +35,7 @@ function renderNewPassword(form){
 
 onload = () => {
     let form = document.getElementById("password-options-form");
+    renderNewPassword(form);
     form.addEventListener("submit", (event) => {
         event.preventDefault();
         renderNewPassword(form);
