@@ -6,7 +6,33 @@
     <title>Random Password Generator</title>
 </head>
 <body>
-    <p id="password"></p>
+    <article class="content">
+        <h1 class="content-title">Random password generator</h1>
+        <section class="password-display">
+            <h2 id="password"></h2>
+        </section>
+        <section class="password-options">
+            <form id="password-options-form">
+                <label for="passwordLength" class="silder-laber">Choose password length: </label>
+                <input name="passwordLength" type="range" min="8" max="256" value="64">
+
+                <input type="checkbox" name="useLowercase">
+                <label for="useLowercase" class="checkbox-label">lowercase</label>
+                
+                <input type="checkbox" name="useUppercase">
+                <label for="useUppercase" class="checkbox-label">uppercase</label>
+
+                <input type="checkbox" name="useNumbers">
+                <label for="useNumbers" class="checkbox-label">numbers</label>
+
+                <input type="checkbox" name="useSpecialChars">
+                <label for="useSpecialChars" class="checkbox-label">special characters</label>
+
+                <input type="submit" value="Generate">
+            </form>
+        </section>
+    </article>
+    
     <script src="script.js"></script>
 </body>
 </html>

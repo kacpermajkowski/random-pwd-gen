@@ -22,6 +22,21 @@ function generatePassword(length = 64, lowercase = true, uppercase = true, numbe
     return pass;
 }
 
+function renderNewPassword(form){
+    let formData = new FormData(form);
+    document.getElementById("password").textContent = generatePassword(
+        length = formData.get("passwordLength"),
+        lowercase = formData.get("useLowercase"),
+        uppercase = formData.get("useUppercase"),
+        numbers = formData.get("useNumbers"),
+        special = formData.get("useSpecialChars")
+    );
+}
+
 onload = () => {
-       document.getElementById("password").textContent = generatePassword(16, true, false, true, false);
+    let form = document.getElementById("password-options-form");
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        renderNewPassword(form);
+    });
 }
