@@ -4,29 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Password Generator</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <article class="content">
         <h1 class="content-title">Random password generator</h1>
-        <section class="password-display">
-            <h2 id="password"></h2>
+        <section class="password-display" id="password">
         </section>
         <section class="password-options">
             <form id="password-options-form" method="POST">
-                <label for="passwordLength" class="silder-laber">Choose password length: </label>
-                <input name="passwordLength" type="range" min="8" max="256" value="64">
+                <div class="input-wrapper slider-wrapper">
+                    <label for="passwordLength">Choose password length: </label>
+                    <input name="passwordLength" type="range" min="8" max="256" value="64">
+                </div>
 
-                <input type="checkbox" name="useLowercase" id="lowercaseCheckbox">
-                <label for="useLowercase" class="checkbox-label">lowercase</label>
-                
-                <input type="checkbox" name="useUppercase">
-                <label for="useUppercase" class="checkbox-label">uppercase</label>
+                <div class="input-wrapper input-group">
+                    <div class="input-wrapper">
+                        <input type="checkbox" name="useLowercase" id="lowercaseCheckbox">
+                        <label for="useLowercase" class="checkbox-label">lowercase</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="checkbox" name="useUppercase">
+                        <label for="useUppercase" class="checkbox-label">uppercase</label>
+                    </div>
+                </div>
 
-                <input type="checkbox" name="useNumbers">
-                <label for="useNumbers" class="checkbox-label">numbers</label>
-
-                <input type="checkbox" name="useSpecialChars">
-                <label for="useSpecialChars" class="checkbox-label">special characters</label>
+                <div class="input-wrapper input-group">
+                    <div class="input-wrapper">
+                        <input type="checkbox" name="useNumbers">
+                        <label for="useNumbers" class="checkbox-label">numbers</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="checkbox" name="useSpecialChars">
+                        <label for="useSpecialChars" class="checkbox-label">special characters</label>
+                    </div>
+                </div>
 
                 <input type="submit" value="Generate">
             </form>

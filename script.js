@@ -4,7 +4,7 @@ function renderPassword(password){
     document.getElementById("password").textContent = password;
 }
 
-function createGenerationSettingsFromForm(form){
+function createGenerationSettings(form){
     let formData = new FormData(form);
     return new ipg.GenerationSettings(
         formData.get("passwordLength"),
@@ -42,7 +42,7 @@ function initializeSubmitInputHook(form){
 }
 
 function renderAndGeneratePassword(form){
-    let gs = createGenerationSettingsFromForm(form);
+    let gs = createGenerationSettings(form);
     let password = generatePassword(gs);
     renderPassword(password);
 }
