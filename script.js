@@ -1,25 +1,59 @@
 import * as ipg from './passwordGenerator.js';
 
-function renderNewPassword(form){
+function renderPassword(password){
+    document.getElementById("password").textContent = password;
+}
+
+function createGenerationSettingsFromForm(form){
     let formData = new FormData(form);
-    let gs = new ipg.GenerationSettings(
+    return new ipg.GenerationSettings(
         formData.get("passwordLength"),
         formData.get("useLowercase"),
         formData.get("useUppercase"),
         formData.get("useNumbers"),
         formData.get("useSpecialChars")
     );
+}
 
-    document.getElementById("password").textContent = new ipg.PasswordGenerator(gs).generate();
+function generatePassword(gs){
+    return new ipg.PasswordGenerator(gs).generate();
+}
+
+function checkboxUpdate(checkboxes){
+    let isAtLeastOneCheckboxChecked = Array.from(checkboxes).some(i => i.checked);
+    if(!isAtLeastOneCheckboxChecked){
+        document.getElementById("lowercaseCheckbox").checked = true;
+    }
+}
+
+function initializeCheckboxUpdateHooks(checkboxes){
+    checkboxes.forEach(cb => {
+        cb.addEventListener("change", (event) => {
+            checkboxUpdate(checkboxes);
+        });
+    });
+}
+
+function initializeSubmitInputHook(form){
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        renderAndGeneratePassword(form);
+    });
+}
+
+function renderAndGeneratePassword(form){
+    let gs = createGenerationSettingsFromForm(form);
+    let password = generatePassword(gs);
+    renderPassword(password);
 }
 
 onload = () => {
     let form = document.getElementById("password-options-form");
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-    renderNewPassword(form);
+    initializeCheckboxUpdateHooks(checkboxes);
+    initializeSubmitInputHook(form);
 
-    form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        renderNewPassword(form);
-    });
+    checkboxUpdate(checkboxes);
+    renderAndGeneratePassword(form);
 }
