@@ -1,4 +1,4 @@
-import * as ipg from './passwordGenerator.js';
+import {GenerationSettings, PasswordGenerator} from './passwordGenerator.js';
 
 function renderPassword(password){
     document.getElementById("password").textContent = password;
@@ -6,7 +6,7 @@ function renderPassword(password){
 
 function createGenerationSettings(form){
     let formData = new FormData(form);
-    return new ipg.GenerationSettings(
+    return new GenerationSettings(
         formData.get("passwordLength"),
         formData.get("useLowercase"),
         formData.get("useUppercase"),
@@ -16,7 +16,7 @@ function createGenerationSettings(form){
 }
 
 function generatePassword(gs){
-    return new ipg.PasswordGenerator(gs).generate();
+    return new PasswordGenerator(gs).generate();
 }
 
 function checkboxUpdate(checkboxes){
