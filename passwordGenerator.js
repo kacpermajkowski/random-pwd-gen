@@ -19,7 +19,7 @@ export class PasswordGenerator{
         let uppercaseChars = lowercaseChars.toUpperCase();
         let numberChars = "0123456789";
         let specialChars = "!@#$%^&*()_+"
-        const [lowercase, uppercase, numbers, special] = this.#gs;
+        const {lowercase, uppercase, numbers, special} = this.#gs;
     
         let pool = (lowercase ? lowercaseChars : "") + 
                (uppercase ? uppercaseChars : "") +
