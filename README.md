@@ -35,4 +35,4 @@ This project is a **password generator website** that dynamically creates secure
 
 5. **License**
 
-   This project is open-source and available under the MIT License. Contributions and suggestions are welcome!
+   This project is open-source and available under the MIT License.
