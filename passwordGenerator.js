@@ -1,38 +1,35 @@
-export class GenerationSettings{
-    constructor(length = 64, lowercase = true, uppercase = true, numbers = true, special = true){
+export class GenerationSettings {
+    length;
+    useLowercase;
+    useUppercase;
+    useNumbers;
+    useSpecialCharacters;
+    constructor(length = 64, useLowercase = true, useUppercase = true, useNumbers = true, useSpecialCharacters = true) {
         this.length = length;
-        this.lowercase = lowercase;
-        this.uppercase = uppercase;
-        this.numbers = numbers;
-        this.special = special;
+        this.useLowercase = useLowercase;
+        this.useUppercase = useUppercase;
+        this.useNumbers = useNumbers;
+        this.useSpecialCharacters = useSpecialCharacters;
     }
 }
-
-export class PasswordGenerator{
-    #gs;
-    constructor(gs){
-        this.#gs = gs;
+export class PasswordGenerator {
+    gs;
+    constructor(gs) {
+        this.gs = gs;
     }
-    
-    #getPasswordGeneratorCharPool(){
+    getPasswordGeneratorCharPool() {
         let lowercaseChars = "abcdefghijklmnoprstuvxyz";
         let uppercaseChars = lowercaseChars.toUpperCase();
         let numberChars = "0123456789";
-        let specialChars = "!@#$%^&*()_+"
-        const {lowercase, uppercase, numbers, special} = this.#gs;
-    
-        let pool = (lowercase ? lowercaseChars : "") + 
-               (uppercase ? uppercaseChars : "") +
-               (numbers ? numberChars : "") +
-               (special ? specialChars : "");
-    
+        let specialChars = "!@#$%^&*()_+";
+        const { useLowercase, useUppercase, useNumbers, useSpecialCharacters } = this.gs;
+        let pool = (useLowercase ? lowercaseChars : "").concat((useUppercase ? uppercaseChars : ""), (useNumbers ? numberChars : ""), (useSpecialCharacters ? specialChars : ""));
         return pool == "" ? lowercaseChars : pool;
     }
-
-    generate(){
-        let charPool = this.#getPasswordGeneratorCharPool();
+    generate() {
+        let charPool = this.getPasswordGeneratorCharPool();
         let pass = "";
-        for(let i = 0; i < this.#gs.length; i++){
+        for (let i = 0; i < this.gs.length; i++) {
             let charNumber = Math.floor(Math.random() * charPool.length);
             pass += charPool.at(charNumber);
         }
