@@ -26,7 +26,7 @@ body {
     min-height: 30em;
     height: fit-content;
 
-    padding: 1.5em;
+    padding: 3em;
 
     background-color: rgb(0, 181, 232);
     border: 2px solid #000000;
@@ -42,29 +42,51 @@ body {
     height: fit-content;
     word-wrap: break-word;
     word-break: break-all;
-    margin: 0.7em 0;
+    margin: 1.5em 0;
 
     font-family: "Courier Prime", monospace;
 }
 
 .password-options > form {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.password-options > form > * {
-    display: flex;
-    flex-direction: row;
+    flex-flow: row wrap;
+    /* padding: 3em; */
+    width: 100%;
 }
 
 .input-wrapper{
     margin: 0.4em;
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 .input-group{
-    justify-content: space-between;
+    width: 50%;
+    padding: 0 1em;
+    display: flex;
+    flex-flow: column nowrap;
 }
+
+.slider-wrapper{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.slider-group{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.slider{
+    width: 60%;
+    margin-left: 1em;
+}
+
 
 input[type="submit"]{
     width: 100%;

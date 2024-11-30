@@ -41,6 +41,18 @@ function initializeSubmitInputHook(form){
     });
 }
 
+function initializeSliderSynchronization(){
+    let slider = document.getElementById("slider");
+    let silderNumber = document.getElementById("sliderNumber");
+
+    slider.addEventListener("input", (event) => {
+        silderNumber.value = slider.value;
+    })
+    silderNumber.addEventListener("change", (event) => {
+        slider.value = sliderNumber.value;
+    })
+}
+
 function renderAndGeneratePassword(form){
     let gs = createGenerationSettings(form);
     let password = generatePassword(gs);
@@ -53,6 +65,7 @@ onload = () => {
 
     initializeCheckboxUpdateHooks(checkboxes);
     initializeSubmitInputHook(form);
+    initializeSliderSynchronization();
 
     checkboxUpdate(checkboxes);
     renderAndGeneratePassword(form);

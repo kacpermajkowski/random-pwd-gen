@@ -16,10 +16,13 @@
             <form id="password-options-form" method="POST">
                 <div class="input-wrapper slider-wrapper">
                     <label for="passwordLength">Choose password length: </label>
-                    <input name="passwordLength" type="range" min="8" max="256" value="64">
+                    <div class="input-wrapper slider-group">
+                        <input type="number" id="sliderNumber" class="slider-number" min="8" max="256" value="64">
+                        <input name="passwordLength" id="slider" class="slider" type="range" min="8" max="256" value="64">
+                    </div>
                 </div>
 
-                <div class="input-wrapper input-group">
+                <div class="input-group">
                     <div class="input-wrapper">
                         <input type="checkbox" name="useLowercase" id="lowercaseCheckbox">
                         <label for="useLowercase" class="checkbox-label">lowercase</label>
@@ -30,7 +33,7 @@
                     </div>
                 </div>
 
-                <div class="input-wrapper input-group">
+                <div class="input-group">
                     <div class="input-wrapper">
                         <input type="checkbox" name="useNumbers">
                         <label for="useNumbers" class="checkbox-label">numbers</label>
