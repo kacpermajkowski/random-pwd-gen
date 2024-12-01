@@ -81,14 +81,17 @@ function getCheckboxes(): NodeListOf<HTMLInputElement>{
     return inputs;
 }
 
+function initializeListeners(checkboxes: NodeListOf<HTMLInputElement>, form: HTMLFormElement){
+    initializeCheckboxUpdateHooks(checkboxes);
+    initializeSubmitInputHook(form);
+    initializeSliderSynchronization();
+}
+
 onload = () => {
     let form = getForm();
     let checkboxes = getCheckboxes();
 
-    initializeCheckboxUpdateHooks(checkboxes);
-    initializeSubmitInputHook(form);
-    initializeSliderSynchronization();
-
+    initializeListeners(checkboxes, form);
     checkboxUpdate(checkboxes);
     renderAndGeneratePassword(form);
 }
