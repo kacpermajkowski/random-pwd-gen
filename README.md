@@ -5,8 +5,11 @@ This project is a **password generator website** that dynamically creates secure
 ## Features
 
 - Customizable Password Options:
-  - Password length (default: 64).
-  - Include lowercase letters, uppercase letters, numbers and special characters.
+  - Password length (default: 64),
+  - lowercase letters, 
+  - UPPERCASE LETTERS,
+  - numb3rs 
+  - and $p€cial_charat€rs.
 
 
 ## Usage
@@ -29,7 +32,7 @@ This project is a **password generator website** that dynamically creates secure
     tsc -t es2022 passwordGenerator.ts script.ts
    ```
    
-4. **Copy all `.html`, `.css` and `.ts` files into location of choice**
+4. **Copy all `.html`, `.css` and generated `.js` files into location of choice**
    
    After which you can open `index.html` in a browser or enter an adress of a web server you hosted the files **and enjoy :)**
 
